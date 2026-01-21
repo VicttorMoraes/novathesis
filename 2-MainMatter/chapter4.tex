@@ -8,47 +8,115 @@
 
 \typeout{NT FILE chapter4.tex}%
 
-\chapter{Adding Support to a New School (work in progress)}
-\label{cha:porting_novathesis}
+\chapter{Proposed Approach}
+\label{cha:Proposed Approach}
 
-My advice to customize the \novathesis\ template to another School/University/Department/Degree is to browse the existing supported degrees to find one that is \emph{close enough}, and depart from there!
+\section{Objective Functions}
+\label{sec:Objective Functions}
 
-The multitude of layouts supported by the \novathesis\ template is based in a three-tier naming scheme, separated by slashes: University / School / Department-or-Degree.  This three-tier naming scheme is also reflected in a three-tier directory (folder) structure in: \verb!<project_root>a/NOVAthesiFiles/Schools/…!.  For example:
+The urban fleet replacement problem considered in this thesis is formulated as a multi-objective optimization problem that simultaneously accounts for economic performance and risk under uncertainty. Following the mean--variance framework introduced by Markowitz (1952) and adapted to urban fleet management by Ahani et al. (2016), the objectives are defined as the minimization of the Expected Total Cost and the minimization of the Variance of the Total Cost over the planning horizon.
 
-\begin{verbatim}
-…
-| 
-+—— nova
-|   +—— Images
-|   +—— fct
-|   |   \—— Images
-|   +—— ims
-|   |   \—— Images
-|   …
-|   
-\—— uminho
-    +—— Images
-    +—— ea
-    |   \—— Images
-    +—— ec
-    |   \—— Images
-    …
-\end{verbatim}
+Let $TC^{(s)}$ denote the total discounted cost of the fleet under scenario $s$, computed according to the cost formulation presented in Section~2.4. Given a finite set of scenarios $s \in \mathcal{S}$, each associated with probability $\pi_s$, the Expected Total Cost (ETC) is defined as:
+\begin{equation}
+\min \; \mathbb{E}[TC] = \sum_{s \in \mathcal{S}} \pi_s \, TC^{(s)} .
+\label{eq:ETC}
+\end{equation}
 
-The directory \verb!uminho! contains the customization for all Schools of Universidade do Minho.  This university is an example of the case where the regulations are defined at University level and all the schools apply the same thesis layout and organization.  So, the all the customization is done in the file \verb!uminho/uminho-defaults.ldf!, except the definition of the name and logo of each individual school.
+The second objective captures risk through the variance of total cost across scenarios. The variance is defined as:
+\begin{equation}
+\min \; \mathrm{Var}(TC) = \sum_{s \in \mathcal{S}} \pi_s 
+\left( TC^{(s)} - \mathbb{E}[TC] \right)^2 .
+\label{eq:VarTC}
+\end{equation}
 
-As another example, the directory \verb!nova! contains the customization for all Schools from NOVA University Lisbon. This university grants a lot of freedom in the definition of the thesis layouts.  In some cases, they are defined at the School level (e.g., NOVA FCT), while is some other cases they are defined separately for each degree (e.g., NOVA IMS).
+Together, Equations~\eqref{eq:ETC} and~\eqref{eq:VarTC} define a bi-objective optimization problem. Minimizing the expected total cost favors economically efficient fleet compositions, while minimizing cost variance reduces exposure to uncertainty and cost volatility arising from stochastic parameters such as energy prices, maintenance costs, and vehicle acquisition costs.
+
+Because these objectives are generally conflicting, no single solution simultaneously minimizes both criteria. Instead, the solution of the problem yields a set of Pareto-optimal fleet configurations, each representing a different trade-off between cost efficiency and risk exposure.
+
+\section{Solution Approach: The e(needstochange)-Constraint Method}
+\label{sec:Solution Approach: The e(needstochange)-Constraint Method}
+
+To solve the bi-objective fleet replacement problem, this thesis adopts the e(needstochange)-constraint method, a widely used approach for multi-objective optimization. In this method, one objective is optimized while the other is transformed into a constraint bounded by a predefined threshold.
+
+Specifically, the Expected Total Cost is minimized while imposing an upper bound on the variance of total cost:
+\begin{align}
+\min \quad & \mathbb{E}[TC] \\
+\text{s.t.} \quad & \mathrm{Var}(TC) \leq \varepsilon , \\
+& \text{fleet balance and operational constraints.}
+\end{align}
+
+By systematically varying the parameter e(needstochange), different risk tolerance levels are explored, generating a set of Pareto-optimal solutions that approximate the efficient frontier. Each solution corresponds to a feasible fleet configuration with a specific balance between expected cost and risk.
+
+This approach allows decision-makers to explicitly evaluate the trade-offs between economic performance and risk exposure and to select fleet compositions that align with their risk preferences and budget constraints.
+
+\chapter{Future Work}
+\label{cha:Future Work}
+
+\section{Tasks}
+\label{sec:Tasks}
+Future work in this dissertation will include the following tasks:
+
+\textbf{Task 1: Data Collection and Scenario Generation.} Collection of historical and projected data regarding vehicle acquisition costs (ICEVs, HEVs and EVs), energy prices (fuel and electricity), and maintenance costs. Based on this data, I will use Python to code the total cost formulation and the mean–variance objectives defined in Chapter 4, along with all operational and fleet balance constraints. The e(needstochange)-constraint method will be applied to generate a set of Pareto-optimal solutions representing different trade-offs between Expected Total Cost and cost Variance. \par
+
+Computational experiments will be conducted to assess model feasibility, convergence behavior, and solution quality under different parameter settings. These experiments will serve as the basis for evaluating the practical applicability of the proposed framework. \par
+
+\textbf{Task 2: Analysis of Cost–Risk Trade-offs.} Once the efficient frontier is obtained, the next step involves analyzing the economic trade-offs between cost efficiency and risk exposure. The impact of increasing risk aversion on fleet composition will be examined by comparing solutions associated with different variance thresholds. This analysis will provide insights into how diversification across vehicle technologies contributes to reducing cost volatility while maintaining acceptable expected costs. \par
+
+\textbf{Task 3: Sensitivity and Elasticity Analysis.} Conducting the robustness analysis defined in Research Question 4. I will systematically vary critical parameters (e.g., electricity prices, battery degradation costs, and carbon taxes) to calculate the elasticity of the fleet composition. The goal is to identify the economic "tipping points" where the optimal decision shifts significantly from ICEVs to EVs.\par
+
+\textbf{Task 4: Policy-Oriented Scenario Evaluation.} The proposed framework will also be used to explore policy-driven scenarios relevant to urban freight operations. These may include changes in energy taxation, technology-specific incentives, or access restrictions associated with low-emission zones. By adjusting cost parameters and constraints accordingly, the model can be used to assess how different policy environments influence fleet replacement decisions and the associated cost–risk trade-offs.
+
+\textbf{Task 5: Model Extensions.} As a final step, potential extensions of the model will be explored, subject to time and data availability. These extensions may include a more detailed representation of fleet heterogeneity, such as multiple vehicle sizes or differentiated usage profiles, as well as alternative planning horizons. While not essential for the core objectives of this dissertation, such extensions would further enhance the realism and applicability of the proposed framework.
+
+\textbf{Task 6: Writing the Dissertation.} Compilation of all chapters, including the literature review, methodology, discussion of results, and conclusions. This task also includes the formatting of the document according to the university's standards and the preparation for the final defense.
+
+\section{Schedule}
+Figure~\ref{fig:schedule} shows the expected schedule for the tasks proposed in Section~\ref{sec:Tasks}
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=1\linewidth]{schedule}
+    \caption{Projected tasks schedule}
+    \label{fig:schedule}
+\end{figure}
+
+% My advice to customize the \novathesis\ template to another School/University/Department/Degree is to browse the existing supported degrees to find one that is \emph{close enough}, and depart from there!
+
+% The multitude of layouts supported by the \novathesis\ template is based in a three-tier naming scheme, separated by slashes: University / School / Department-or-Degree.  This three-tier naming scheme is also reflected in a three-tier directory (folder) structure in: \verb!<project_root>a/NOVAthesiFiles/Schools/…!.  For example:
+
+% \begin{verbatim}
+% …
+% | 
+% +—— nova
+% |   +—— Images
+% |   +—— fct
+% |   |   \—— Images
+% |   +—— ims
+% |   |   \—— Images
+% |   …
+% |   
+% \—— uminho
+%     +—— Images
+%     +—— ea
+%     |   \—— Images
+%     +—— ec
+%     |   \—— Images
+%     …
+% \end{verbatim}
+
+% The directory \verb!uminho! contains the customization for all Schools of Universidade do Minho.  This university is an example of the case where the regulations are defined at University level and all the schools apply the same thesis layout and organization.  So, the all the customization is done in the file \verb!uminho/uminho-defaults.ldf!, except the definition of the name and logo of each individual school.
+
+% As another example, the directory \verb!nova! contains the customization for all Schools from NOVA University Lisbon. This university grants a lot of freedom in the definition of the thesis layouts.  In some cases, they are defined at the School level (e.g., NOVA FCT), while is some other cases they are defined separately for each degree (e.g., NOVA IMS).
 
 
 
 
-\begin{enumerate}
-  \item Try all the already supported schools and check which one is closer to your needs;
-  \begin{enumerate}
-    \item Edit \verb!Config/1_novathesis.tex! and near line 28 uncomment the line with key \verb!\ntsetup{school=<SOMETHING>}!;
-    \item For each school supported (see the comment), replace \verb!<SOMETHING>! with the school name, e.g., make it \verb!\ntsetup{school=ulisboa/fmv}!
-    \item Recompile and check the document.  Particularly, check the cover layout, the front-page (second cover) layout, the front-matter contents, the bibliography style;
-    \item Repeat for the next school, until you find one close enough.
-  \end{enumerate}
-  \item 
-\end{enumerate}
+% \begin{enumerate}
+%   \item Try all the already supported schools and check which one is closer to your needs;
+%   \begin{enumerate}
+%     \item Edit \verb!Config/1_novathesis.tex! and near line 28 uncomment the line with key \verb!\ntsetup{school=<SOMETHING>}!;
+%     \item For each school supported (see the comment), replace \verb!<SOMETHING>! with the school name, e.g., make it \verb!\ntsetup{school=ulisboa/fmv}!
+%     \item Recompile and check the document.  Particularly, check the cover layout, the front-page (second cover) layout, the front-matter contents, the bibliography style;
+%     \item Repeat for the next school, until you find one close enough.
+%   \end{enumerate}
+%   \item 
+% \end{enumerate}

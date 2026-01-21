@@ -15,289 +15,329 @@
 \makeatother
 
 
-\chapter{A Short \LaTeX\ Tutorial with Examples}
-\label{cha:a_short_latex_tutorial_with_examples}
+\chapter{Case Study}
+\label{cha:Case Study}
 
-This Chapter aims at exemplifying how to do common stuff with \LaTeX. We also show some stuff which is not that common! ;)
+This chapter presents the case study used to illustrate and evaluate the proposed fleet replacement optimization framework. The case study is designed to represent a realistic urban freight context in which fleet operators face increasing regulatory pressure to reduce emissions while maintaining economic viability. The objective is not to replicate the operations of a specific company, but rather to develop a flexible and transferable decision-support framework that can be applied by both public and private urban freight operators.
 
-Please, use these examples as a starting point, but you should always consider using the \emph{Big Oracle} (aka, \href{http://www.google.com}{Google}, your best friend) to search for additional information or al-ternative ways for achieving similar results.
+\section{Case Study Context}
+\label{sec:Case Study Context}
 
-\section{Document Structure} % (fold)
-\label{sec:document_structure}
+Urban freight operators are increasingly required to adapt their fleets in response to environmental regulations, such as low-emission zones, carbon pricing mechanisms, and technology specific incentives. These policies affect both public entities, such as municipal service providers and private logistics companies operating in urban areas. In this context, fleet replacement decisions involve long-term investment planning under uncertainty, where operators must choose between conventional and alternative vehicle technologies while considering cost volatility, budget constraints, and operational requirements.
 
-% section document_structure (end)
+The case study considered in this thesis focuses on the development of an investment planning framework that supports strategic fleet replacement decisions under such conditions. The proposed framework is intended to be applicable to a wide range of urban freight operations, including last-mile delivery services, municipal logistics, and public transport related with freight activities.
 
+\section{Data Sources and Industry Engagement}
+\label{sec:Data Sources and Industry Engagement}
 
-\section{Dealing with Bibliography} % (fold)
-\label{sec:dealing_with_bibliography}
+Whenever possible, this study aims to rely on real-world data obtained through collaboration with industry partners. In particular, efforts will be made to establish contact with urban freight operators, either from the private sector or from public entities such as Carris, the public transport operator of Lisbon, which also manages logistics and support fleets. Such collaboration would allow the model parameters to reflect actual operational conditions, vehicle usage patterns, and cost structures.
 
-Citing something online~\cite{wiki:shuntingyard,flex,bison}.
+If access to proprietary operational data is not feasible, the case study will be constructed using data available in the academic literature, industry reports, and public databases. Cost parameters related to vehicle acquisition, energy consumption, maintenance, and emissions will be derived from published studies and market reports. This approach ensures transparency and reproducibility while maintaining a realistic representation of urban freight operations.
 
-% section dealing_with_bibliography (end)
-
-
-\section{Inserting Tables} % (fold)
-\label{sec:inserting_tables}
-
-% section inserting_tables (end)
+\section{Fleet Composition and Planning Horizon}
+\label{sec:Fleet Composition and Planning Horizon}
 
 
-\section{Importing Images} % (fold)
-\label{sec:importing_images}
+The fleet considered in the case study consists of multiple vehicle technologies, including Internal Combustion Engine Vehicles (ICEVs), Electric Vehicles (EVs), and Hybrid Electric Vehicles (HEVs). These technologies differ in acquisition cost, operating cost, energy source, and exposure to cost uncertainty. The inclusion of multiple vehicle types allows the analysis to capture diversification effects, which are central to the mean–variance optimization framework.
 
-% section importing_images (end)
+The planning horizon is defined as a multi-period horizon consistent with typical vehicle lifecycles in urban freight operations. Fleet replacement decisions are made at discrete time intervals, during which vehicles may be acquired, operated, or retired. Vehicle aging, utilization levels, and salvage values are explicitly considered to reflect realistic fleet dynamics.
+
+\section{Cost and Uncertainty Representation}
+\label{sec:Cost and Uncertainty Representation}
+
+Cost components included in the case study follow the total cost formulation presented in Chapter 2 and are consistent with the framework proposed by Ahani et al. (2016). These components include vehicle acquisition costs, energy costs, maintenance and operating expenses, emission-related costs, and salvage values. Uncertainty is introduced primarily through stochastic energy prices and operating costs, which are modeled using a finite set of scenarios.
+
+The scenarios are designed to represent plausible future market conditions, capturing variations in fuel and electricity prices as well as other cost drivers. Each scenario is associated with a probability, allowing the computation of expected costs and cost variance, which serve as the objective functions in the optimization model.
+
+\section{Purpose of the Case Study}
+\label{sec:Purpose of the Case Study}
+
+The purpose of this case study is to demonstrate how the proposed optimization framework can support fleet replacement decisions under uncertainty. Rather than prescribing a single optimal solution, the model generates a set of Pareto-optimal fleet configurations that reflect different trade-offs between expected cost and risk. This enables decision-makers to evaluate alternative investment strategies and to select fleet compositions that align with their risk preferences and policy constraints.
+
+By remaining independent of a specific operator, the case study framework is designed to be transferable and adaptable. As such, it can be applied by any public or private urban freight operator seeking to structure or renew a fleet in response to environmental regulations and uncertain economic conditions.
 
 
-\section{Floats, Figures and Captions} % (fold)
-\label{sec:floats_figures_and_captions}
 
-% \subsection{Inserting Figures Wrapped with text} % (fold)
-% \label{ssec:inserting_images_wrapped_with_text}
-%
-% You should only use this feature is \emph{really} necessary. This means, you have a very small image, that will look lonely just with text above and below.
-%
-% In this case, you must use the \verb!wrapfigure! package.  To use \verb!wrapfig!, you must first add this to the preamble:
-%
-% \begin{wrapfigure}{l}{2.5cm}
+% This Chapter aims at exemplifying how to do common stuff with \LaTeX. We also show some stuff which is not that common! ;)
+
+% Please, use these examples as a starting point, but you should always consider using the \emph{Big Oracle} (aka, \href{http://www.google.com}{Google}, your best friend) to search for additional information or al-ternative ways for achieving similar results.
+
+% \section{Document Structure} % (fold)
+% \label{sec:document_structure}
+
+% % section document_structure (end)
+
+
+% \section{Dealing with Bibliography} % (fold)
+% \label{sec:dealing_with_bibliography}
+
+% Citing something online~\cite{wiki:shuntingyard,flex,bison}.
+
+% % section dealing_with_bibliography (end)
+
+
+% \section{Inserting Tables} % (fold)
+% \label{sec:inserting_tables}
+
+% % section inserting_tables (end)
+
+
+% \section{Importing Images} % (fold)
+% \label{sec:importing_images}
+
+% % section importing_images (end)
+
+
+% \section{Floats, Figures and Captions} % (fold)
+% \label{sec:floats_figures_and_captions}
+
+% % \subsection{Inserting Figures Wrapped with text} % (fold)
+% % \label{ssec:inserting_images_wrapped_with_text}
+% %
+% % You should only use this feature is \emph{really} necessary. This means, you have a very small image, that will look lonely just with text above and below.
+% %
+% % In this case, you must use the \verb!wrapfigure! package.  To use \verb!wrapfig!, you must first add this to the preamble:
+% %
+% % \begin{wrapfigure}{l}{2.5cm}
+% %   \centering
+% %     \includegraphics[width=2cm]{snowman-vectorial}
+% %   \caption{A snow-man}
+% % \end{wrapfigure}
+% %
+% % \noindent\verb!\usepackage{wrapfig}!\\
+% % This then gives you access to:\\
+% % \verb!\begin{wrapfigure}[lineheight]{alignment}{width}!\\
+% % Alignment can normally be either ``l'' for left, or ``r'' for right. Lowercase ``l'' or ``r'' forces the figure to start precisely where specified (and may cause it to run over page breaks), while capital ``L'' or ``R'' allows the figure to float. If you defined your document as twosided, the alignment can also be ``i'' for inside or ``o'' for outside, as well as ``I'' or ``O''. The width is obviously the width of the figure. The example above was introduced with:
+% % \lstset{language=TeX, morekeywords={\begin,\includegraphics,\caption}, caption=Wrapfig Example, label=lst:latex_example}
+% % \begin{lstlisting}
+% %   \begin{wrapfigure}{l}{2.5cm}
+% %     \centering
+% %       \includegraphics[width=2cm]{snowman-vectorial}
+% %     \caption{A snow-man}
+% %   \end{wrapfigure}
+% % \end{lstlisting}
+
+% % subsection inserting_images_wrapped_with_text (end)
+
+% % section floats_figures_and_captions (end)
+
+% \lipsum[1-3]
+
+% \begin{figure}[htbp]
 %   \centering
-%     \includegraphics[width=2cm]{snowman-vectorial}
-%   \caption{A snow-man}
-% \end{wrapfigure}
-%
-% \noindent\verb!\usepackage{wrapfig}!\\
-% This then gives you access to:\\
-% \verb!\begin{wrapfigure}[lineheight]{alignment}{width}!\\
-% Alignment can normally be either ``l'' for left, or ``r'' for right. Lowercase ``l'' or ``r'' forces the figure to start precisely where specified (and may cause it to run over page breaks), while capital ``L'' or ``R'' allows the figure to float. If you defined your document as twosided, the alignment can also be ``i'' for inside or ``o'' for outside, as well as ``I'' or ``O''. The width is obviously the width of the figure. The example above was introduced with:
-% \lstset{language=TeX, morekeywords={\begin,\includegraphics,\caption}, caption=Wrapfig Example, label=lst:latex_example}
-% \begin{lstlisting}
-%   \begin{wrapfigure}{l}{2.5cm}
-%     \centering
-%       \includegraphics[width=2cm]{snowman-vectorial}
-%     \caption{A snow-man}
-%   \end{wrapfigure}
-% \end{lstlisting}
+%   \subbottom[One sub-figure\label{fig:leftsubfig}]{%
+%     \includegraphics[width=0.5\linewidth]{knitting-vectorial}}%
+%   \subbottom[Another sub-figure\label{fig:rightsubfig}]{%
+%     \includegraphics[width=0.5\linewidth]{knitting-vectorial}}%
+%   \caption{A figure with two sub-figures!}
+%   \label{fig:fig2subfig}
+% \end{figure}
 
-% subsection inserting_images_wrapped_with_text (end)
+% \textbf{And this is a small text that references the Figure~\ref{fig:fig2subfig} and its Subfigures~\ref{fig:leftsubfig} and~\ref{fig:rightsubfig}.}
 
-% section floats_figures_and_captions (end)
-
-\lipsum[1-3]
-
-\begin{figure}[htbp]
-  \centering
-  \subbottom[One sub-figure\label{fig:leftsubfig}]{%
-    \includegraphics[width=0.5\linewidth]{knitting-vectorial}}%
-  \subbottom[Another sub-figure\label{fig:rightsubfig}]{%
-    \includegraphics[width=0.5\linewidth]{knitting-vectorial}}%
-  \caption{A figure with two sub-figures!}
-  \label{fig:fig2subfig}
-\end{figure}
-
-\textbf{And this is a small text that references the Figure~\ref{fig:fig2subfig} and its Subfigures~\ref{fig:leftsubfig} and~\ref{fig:rightsubfig}.}
-
-\lipsum[1-3]
+% \lipsum[1-3]
 
 
-\section{Text Formatting} % (fold)
-\label{sec:text_formatting}
+% \section{Text Formatting} % (fold)
+% \label{sec:text_formatting}
 
-% section text_formatting (end)
-
-
-\section{Generating PDFs from \LaTeX} % (fold)
-\label{sec:generating_pdfs_from_latex}
-
-\subsection{Generating PDFs with pdflatex} % (fold)
-\label{ssec:generating_pdfs_with_pdflatex}
-
-You may create PDF files either by using \verb!latex! to generate a DVI file, and then use one of the many DVI-2-PDF converters, such as \verb!dvipdfm!.
-
-Alternatively, you may use \verb!pdflatex!, which will immediately generate a PDF with no intermediate DVI or PS files. In some systems, such as Apple, PDF is already the default format for \LaTeX. I strongly recommend you to use this approach, unless you have a very good argument to go for \verb!latex! + \verb!dvipdfm!.
-
-A typical pass for a document with figures, cross-references and a bibliography would be:
-\begin{verbatim}
-$ pdflatex template
-$ bibtex template
-$ pdflatex template
-$ pdflatex template
-\end{verbatim}
-You will notice that there is a new PDF file in the working directory called \verb!template.pdf!. Simple :)
-
-Please note that, to be sure all table of contents, cross-references and bibliographic citations are up-to-date, you must run \verb!latex! once, then \verb!bibtex!, and then \verb!latex! twice.
-% section generating_pdfs_with_pdflatex (end)
-
-\subsection{Dealing with Images} % (fold)
-\label{sub:dealing_with_images}
-
-You may process the same source files with both \verb!latex! or \verb!pdflatex!. But, if your text include images, you must be careful. \verb!latex! and \verb!pdflatex! accept images in different (exclusive) formats.  For \verb!latex! you may use EPS ou PS figures. For \verb!pdflatex! you may use JPG, PNG or PDF figures.  I strongly recommend you to use PDF figures in vectorial format (do not use bitmap images unless you have no other choice).
-% subsection dealing_with_images (end)
+% % section text_formatting (end)
 
 
-\subsection{Dealing with Citations} % (fold)
+% \section{Generating PDFs from \LaTeX} % (fold)
+% \label{sec:generating_pdfs_from_latex}
 
-Para fazer citações, deverá usar-se a chave da referência no ficheiro BibTeX. Se for uma única referência~\cite{Artho04}, usar um ``\verb!~!'' para ligar o \verb!\cite{...}! à palavra que o precede (\ldots\verb!referência~\cite{Artho04}!).  Caso queira fazer múltiplas citações~\cite{Shavit95,Silberschatz06,Moss85}, deverá agrupá-las dentro de um úinico \verb!\cite{...}!.
+% \subsection{Generating PDFs with pdflatex} % (fold)
+% \label{ssec:generating_pdfs_with_pdflatex}
 
-Note que o ficheiro de bibliografia pode ter tantas entradas quantas quiser. Apenas aquelas cuja chave seja referenciada no texto é que serão incluidas na listagem de bibliografia.
+% You may create PDF files either by using \verb!latex! to generate a DVI file, and then use one of the many DVI-2-PDF converters, such as \verb!dvipdfm!.
+
+% Alternatively, you may use \verb!pdflatex!, which will immediately generate a PDF with no intermediate DVI or PS files. In some systems, such as Apple, PDF is already the default format for \LaTeX. I strongly recommend you to use this approach, unless you have a very good argument to go for \verb!latex! + \verb!dvipdfm!.
+
+% A typical pass for a document with figures, cross-references and a bibliography would be:
+% \begin{verbatim}
+% $ pdflatex template
+% $ bibtex template
+% $ pdflatex template
+% $ pdflatex template
+% \end{verbatim}
+% You will notice that there is a new PDF file in the working directory called \verb!template.pdf!. Simple :)
+
+% Please note that, to be sure all table of contents, cross-references and bibliographic citations are up-to-date, you must run \verb!latex! once, then \verb!bibtex!, and then \verb!latex! twice.
+% % section generating_pdfs_with_pdflatex (end)
+
+% \subsection{Dealing with Images} % (fold)
+% \label{sub:dealing_with_images}
+
+% You may process the same source files with both \verb!latex! or \verb!pdflatex!. But, if your text include images, you must be careful. \verb!latex! and \verb!pdflatex! accept images in different (exclusive) formats.  For \verb!latex! you may use EPS ou PS figures. For \verb!pdflatex! you may use JPG, PNG or PDF figures.  I strongly recommend you to use PDF figures in vectorial format (do not use bitmap images unless you have no other choice).
+% % subsection dealing_with_images (end)
 
 
-\subsection{Footnotes} % (fold)
+% \subsection{Dealing with Citations} % (fold)
 
-Footnotes\footnote{This is a simple footnote.} will be numbered and shown in the bottom of the page.
+% Para fazer citações, deverá usar-se a chave da referência no ficheiro BibTeX. Se for uma única referência~\cite{Artho04}, usar um ``\verb!~!'' para ligar o \verb!\cite{...}! à palavra que o precede (\ldots\verb!referência~\cite{Artho04}!).  Caso queira fazer múltiplas citações~\cite{Shavit95,Silberschatz06,Moss85}, deverá agrupá-las dentro de um úinico \verb!\cite{...}!.
+
+% Note que o ficheiro de bibliografia pode ter tantas entradas quantas quiser. Apenas aquelas cuja chave seja referenciada no texto é que serão incluidas na listagem de bibliografia.
 
 
-\subsection{Tables} % (fold)
+% \subsection{Footnotes} % (fold)
 
-The Table~\ref{tab:hla:results} illustrates some important concepts associated with table construction:
-\begin{asparaenum}[i)]
-\item Do not use vertical lines;
-\item The caption should be above the table;
-\item Use the macros \verb!\toprule!, \verb!\midrule! and \verb!\bottomrule! to make the top, inner and bottom horizontal lines, respectively.
-\end{asparaenum}
+% Footnotes\footnote{This is a simple footnote.} will be numbered and shown in the bottom of the page.
 
-\bgroup
-\rowcolors{1}{}{GhostWhite}
-\begin{xltabular}{\textwidth}{Xccccc}
-  \caption{Test results summary.}
-  \label{tab:hla:results}\\
-  \toprule
-  \rowcolor{Gainsboro}%
-  Test   & Anomalies  & Warnings  & Correct   & Categories            & Missed \\
-  \midrule
-Connection~\cite{Beckman08}     & 2       & 2          & 1          & \emph{C}              & 1 \\
-Coordinates'03~\cite{Artho03}   & 1        & 4          & 1          & \emph{2B, 1C}          & 0 \\
-Local Variable~\cite{Artho03}    & 1        & 2          & 1          & \emph{A}              & 0 \\
-NASA~\cite{Artho03}              & 1        & 1          & 1          & ---                    & 0 \\
-Coordinates'04~\cite{Artho04}    & 1        & 4          & 1          & \emph{3C}              & 0 \\
-Buffer~\cite{Artho04}            & 0        & 7          & 0          & \emph{2A, 1B, 2C, 2D}  & 0 \\
-Double-Check~\cite{Artho04}      & 0        & 2          & 0          & \emph{1A, 1B}          & 0 \\
-StringBuffer~\cite{Flanagan04}  & 1        & 0          & 0          & ---                    & 1 \\
-Account~\cite{Praun03}          & 1        & 1          & 1          & ---                   & 0 \\
-Jigsaw~\cite{Praun03}            & 1        & 2          & 1          & \emph{C}              & 0 \\
-Over-reporting~\cite{Praun03}    & 0        & 2          & 0          & \emph{1A, 1C}          & 0 \\
-Under-reporting~\cite{Praun03}  & 1        & 1          & 1          & ---                    & 0 \\
-Allocate Vector~\cite{IBM-Rep}  & 1        & 2          & 1          & \emph{C}              & 0 \\
-Knight Moves~\cite{Beckman08}   & 1        & 3          & 1          & \emph{2B}              & 0 \\
-  \midrule
-  \rowcolor{Gainsboro}%
-Total                            & 12      & 33        & 10        & 5A, 6B, 10C, 2D       & 2 \\
-  \bottomrule
-  \end{xltabular}
-\egroup
 
-\subsection{Figures} % (fold)
+% \subsection{Tables} % (fold)
 
-The images inserted in the document must be of good quality, preferably in vector format (vector PDF) and not in \emph{bitmap} (PNG, JPG, etc.). \emph{bitmap} images (Figure~\ref{fig:Figures_Tree_silhouettes-bitmap}) do not scale well and have negative effects on the quality of your document. On the other hand, \emph{vector} images {Figure~\ref{fig:Figures_Tree_silhouettes-vectorial}} scale as much as necessary without degrading the quality of the image.
+% The Table~\ref{tab:hla:results} illustrates some important concepts associated with table construction:
+% \begin{asparaenum}[i)]
+% \item Do not use vertical lines;
+% \item The caption should be above the table;
+% \item Use the macros \verb!\toprule!, \verb!\midrule! and \verb!\bottomrule! to make the top, inner and bottom horizontal lines, respectively.
+% \end{asparaenum}
 
-You should only use \emph{screenshots} for your plots, charts, etc, if you absolutely have no other alternative. Instead of generating a \emph{screenshot}, try using a virtual PDF printer and printing to a PDF file. As a general rule, you will get a vector PDF. Even if your PDF contains images, they will always be of higher or equal quality than what you would get with a \emph{screenshot}.
+% \bgroup
+% \rowcolors{1}{}{GhostWhite}
+% \begin{xltabular}{\textwidth}{Xccccc}
+%   \caption{Test results summary.}
+%   \label{tab:hla:results}\\
+%   \toprule
+%   \rowcolor{Gainsboro}%
+%   Test   & Anomalies  & Warnings  & Correct   & Categories            & Missed \\
+%   \midrule
+% Connection~\cite{Beckman08}     & 2       & 2          & 1          & \emph{C}              & 1 \\
+% Coordinates'03~\cite{Artho03}   & 1        & 4          & 1          & \emph{2B, 1C}          & 0 \\
+% Local Variable~\cite{Artho03}    & 1        & 2          & 1          & \emph{A}              & 0 \\
+% NASA~\cite{Artho03}              & 1        & 1          & 1          & ---                    & 0 \\
+% Coordinates'04~\cite{Artho04}    & 1        & 4          & 1          & \emph{3C}              & 0 \\
+% Buffer~\cite{Artho04}            & 0        & 7          & 0          & \emph{2A, 1B, 2C, 2D}  & 0 \\
+% Double-Check~\cite{Artho04}      & 0        & 2          & 0          & \emph{1A, 1B}          & 0 \\
+% StringBuffer~\cite{Flanagan04}  & 1        & 0          & 0          & ---                    & 1 \\
+% Account~\cite{Praun03}          & 1        & 1          & 1          & ---                   & 0 \\
+% Jigsaw~\cite{Praun03}            & 1        & 2          & 1          & \emph{C}              & 0 \\
+% Over-reporting~\cite{Praun03}    & 0        & 2          & 0          & \emph{1A, 1C}          & 0 \\
+% Under-reporting~\cite{Praun03}  & 1        & 1          & 1          & ---                    & 0 \\
+% Allocate Vector~\cite{IBM-Rep}  & 1        & 2          & 1          & \emph{C}              & 0 \\
+% Knight Moves~\cite{Beckman08}   & 1        & 3          & 1          & \emph{2B}              & 0 \\
+%   \midrule
+%   \rowcolor{Gainsboro}%
+% Total                            & 12      & 33        & 10        & 5A, 6B, 10C, 2D       & 2 \\
+%   \bottomrule
+%   \end{xltabular}
+% \egroup
 
-\begin{figure}[htbp]
-  \centering
-  \includegraphics[height=1in]{snowman-bitmap}
-  \includegraphics[height=3in]{snowman-bitmap}
-  \includegraphics[height=6in]{snowman-bitmap}
-  \caption{Bitmap image (JPG/PNG)}
-  \label{fig:Figures_Tree_silhouettes-bitmap}
-\end{figure}
+% \subsection{Figures} % (fold)
 
-\begin{figure}[htbp]
-  \centering
-  \includegraphics[height=1in]{snowman-vectorial}
-  \includegraphics[height=3in]{snowman-vectorial}
-  \includegraphics[height=6in]{snowman-vectorial}
-  \caption{Vectorial image (PDF)}
-  \label{fig:Figures_Tree_silhouettes-vectorial}
-\end{figure}
+% The images inserted in the document must be of good quality, preferably in vector format (vector PDF) and not in \emph{bitmap} (PNG, JPG, etc.). \emph{bitmap} images (Figure~\ref{fig:Figures_Tree_silhouettes-bitmap}) do not scale well and have negative effects on the quality of your document. On the other hand, \emph{vector} images {Figure~\ref{fig:Figures_Tree_silhouettes-vectorial}} scale as much as necessary without degrading the quality of the image.
 
-To combine several figures into a single one… You can then reference the set as Figure~\ref{fig:complete-figure} or the sub-figures separately as~\ref{fig:woolball} and~\ref{fig:cloud}.
+% You should only use \emph{screenshots} for your plots, charts, etc, if you absolutely have no other alternative. Instead of generating a \emph{screenshot}, try using a virtual PDF printer and printing to a PDF file. As a general rule, you will get a vector PDF. Even if your PDF contains images, they will always be of higher or equal quality than what you would get with a \emph{screenshot}.
 
-\begin{figure}[htbp]
-  \centering
-    \subbottom[Novelo de lã]{%
-    \label{fig:woolball}
-    \includegraphics[height=1in]{knitting-vectorial}
-    }
-\qquad\qquad
-    \subbottom[Tempestade com neve]{%
-    \label{fig:cloud}
-    \includegraphics[height=1in]{snowstorm-vectorial}
-    }
-  \caption{Exemplo de utilização de \emph{subbottom}}
-  \label{fig:complete-figure}
-\end{figure}
+% \begin{figure}[htbp]
+%   \centering
+%   \includegraphics[height=1in]{snowman-bitmap}
+%   \includegraphics[height=3in]{snowman-bitmap}
+%   \includegraphics[height=6in]{snowman-bitmap}
+%   \caption{Bitmap image (JPG/PNG)}
+%   \label{fig:Figures_Tree_silhouettes-bitmap}
+% \end{figure}
 
-\section{Equations}
+% \begin{figure}[htbp]
+%   \centering
+%   \includegraphics[height=1in]{snowman-vectorial}
+%   \includegraphics[height=3in]{snowman-vectorial}
+%   \includegraphics[height=6in]{snowman-vectorial}
+%   \caption{Vectorial image (PDF)}
+%   \label{fig:Figures_Tree_silhouettes-vectorial}
+% \end{figure}
 
-LaTeX is a powerful tool for writing in a mathematical style. It allows you to insert formulas into the text, such as this: $ax^2 + bx + c = 0$. It also allows formulas to be highlighted on a separate line and centered on the page.
-\[ x = \frac{-b \pm \sqrt{b^2-4ac}}{2a} \]
-or numbered
-\begin{equation}
-e = mc^2
-\label{eq:1}
-\end{equation}
-which can latter be referenced as equation~\ref{eq:1}
+% To combine several figures into a single one… You can then reference the set as Figure~\ref{fig:complete-figure} or the sub-figures separately as~\ref{fig:woolball} and~\ref{fig:cloud}.
 
-\newif\ifntlistingsloaded
-\ntifpkgloaded{listings}{\ntlistingsloadedtrue}{\ntlistingsloadedfalse}
-\newif\ifntmintedloaded
-\ntifpkgloaded{minted}{\ntmintedloadedtrue}{\ntmintedloadedfalse}
-
-\ifntlistingsloaded
-\section{Test for listings} % (fold)
-\label{sec:test_for_listings}
-
-Testing the package “listings“…
-
-\begin{lstlisting}[caption=cap,label=lst:lab,float=htbp]
-if(a==b)
-  puts("YESS!")
-\end{lstlisting}
-\fi
-
-\ifntmintedloaded
-\section{Test for minted} % (fold)
-\label{sec:test_for_minted}
-
-Testing the package “minted“…
-
-\begin{listing}[H]
-  \begin{minted}{C}
-    if(a==b)
-      puts("YESS!")
-  \end{minted}
-  \caption{Example of a listing.}
-  \label{lst:lab}
-\end{listing}
-\fi
-
-\section{Test for algorithms}
-\label{sec:test_for_algorithms}
-
-Uncomment the algorithms source below and add the following to file “\verb!5_packages.tex!”
-\begin{verbatim}
-  \usepackage{algorithm2e}
-  \RestyleAlgo{ruled}
-\end{verbatim}
-and uncomment
-\begin{verbatim}
-\ntaddlistof{listofalgorithms}
-\end{verbatim}
-in file “\verb!8_list_og.tex!”.
-
-% \begin{algorithm}
-% $i\gets 10$\;
-% \eIf{$i\geq 5$}
-% {
-%     $i\gets i-1$\;
-% }{
-%     \If{$i\leq 3$}
-%     {
-%         $i\gets i+2$\;
+% \begin{figure}[htbp]
+%   \centering
+%     \subbottom[Novelo de lã]{%
+%     \label{fig:woolball}
+%     \includegraphics[height=1in]{knitting-vectorial}
 %     }
-% }
-% \caption{This is an algorithm.}
-% \end{algorithm}
+% \qquad\qquad
+%     \subbottom[Tempestade com neve]{%
+%     \label{fig:cloud}
+%     \includegraphics[height=1in]{snowstorm-vectorial}
+%     }
+%   \caption{Exemplo de utilização de \emph{subbottom}}
+%   \label{fig:complete-figure}
+% \end{figure}
 
-% section test_for_listings (end)
+% \section{Equations}
 
-% \printbibliography[heading=subbibliography, segment=\therefsegment, title={\bibname\ for chapter~\thechapter}]
+% LaTeX is a powerful tool for writing in a mathematical style. It allows you to insert formulas into the text, such as this: $ax^2 + bx + c = 0$. It also allows formulas to be highlighted on a separate line and centered on the page.
+% \[ x = \frac{-b \pm \sqrt{b^2-4ac}}{2a} \]
+% or numbered
+% \begin{equation}
+% e = mc^2
+% \label{eq:1}
+% \end{equation}
+% which can latter be referenced as equation~\ref{eq:1}
+
+% \newif\ifntlistingsloaded
+% \ntifpkgloaded{listings}{\ntlistingsloadedtrue}{\ntlistingsloadedfalse}
+% \newif\ifntmintedloaded
+% \ntifpkgloaded{minted}{\ntmintedloadedtrue}{\ntmintedloadedfalse}
+
+% \ifntlistingsloaded
+% \section{Test for listings} % (fold)
+% \label{sec:test_for_listings}
+
+% Testing the package “listings“…
+
+% \begin{lstlisting}[caption=cap,label=lst:lab,float=htbp]
+% if(a==b)
+%   puts("YESS!")
+% \end{lstlisting}
+% \fi
+
+% \ifntmintedloaded
+% \section{Test for minted} % (fold)
+% \label{sec:test_for_minted}
+
+% Testing the package “minted“…
+
+% \begin{listing}[H]
+%   \begin{minted}{C}
+%     if(a==b)
+%       puts("YESS!")
+%   \end{minted}
+%   \caption{Example of a listing.}
+%   \label{lst:lab}
+% \end{listing}
+% \fi
+
+% \section{Test for algorithms}
+% \label{sec:test_for_algorithms}
+
+% Uncomment the algorithms source below and add the following to file “\verb!5_packages.tex!”
+% \begin{verbatim}
+%   \usepackage{algorithm2e}
+%   \RestyleAlgo{ruled}
+% \end{verbatim}
+% and uncomment
+% \begin{verbatim}
+% \ntaddlistof{listofalgorithms}
+% \end{verbatim}
+% in file “\verb!8_list_og.tex!”.
+
+% % \begin{algorithm}
+% % $i\gets 10$\;
+% % \eIf{$i\geq 5$}
+% % {
+% %     $i\gets i-1$\;
+% % }{
+% %     \If{$i\leq 3$}
+% %     {
+% %         $i\gets i+2$\;
+% %     }
+% % }
+% % \caption{This is an algorithm.}
+% % \end{algorithm}
+
+% % section test_for_listings (end)
+
+% % \printbibliography[heading=subbibliography, segment=\therefsegment, title={\bibname\ for chapter~\thechapter}]
 

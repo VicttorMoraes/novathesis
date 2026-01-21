@@ -550,6 +550,8 @@
 
 
 % Ensure l3regex is available (standard in modern kernels)
+\usepackage{expl3}
+\expandafter\def\csname ver@l3regex.sty\endcsname{} 
 \sys_if_engine_luatex:F { \RequirePackage{l3regex} }
 
 \NewDocumentCommand{\IfFileExistsCase}{ s O{} m m }

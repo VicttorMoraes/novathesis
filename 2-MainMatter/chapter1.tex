@@ -18,28 +18,77 @@
 \setlength\epigraphwidth{12.5cm}
 \setlength\epigraphrule{0pt}
 
-\includegraphics[width=0.1\linewidth]{\DIRIMAGES/novathesis-insignia}\hfill
-\includegraphics[width=0.875\linewidth]{\DIRIMAGES/novathesis-text}
 
-\noindent This is the \gls{novathesis} \LaTeX\ template \ntindex[Template!]{Version} \novathesisversion\ from   {Template!date}\novathesisdate.
-
-\epigraph{
-  This work is licensed under the \href{https://www.latex-project.org/lppl/lppl-1-3c/}{\LaTeX\ Project Public License v1.3c}.
-  To view a copy of this \ntindex[Template!]{license}, visit the \href{https://www.latex-project.org/lppl/}{LaTeX project public license}.
-}
-
-% \section{Welcome to the \novathesis\ Template}
-% \label{sec:if_you_use_this_template}
-
-This first Chapter introduces the \gls{novathesis} template and how it is organized. In Chapter~\ref{cha:users_manual} you can find some specific instructions on how to use this template.  Chapter~\ref{cha:a_short_latex_tutorial_with_examples} shows some examples and give some hints on how to write your text. Please read these next Chapters carefully.
-
-\section{The \emph{NOVAthesis} Template}
+\section{Context and motivation}
 \label{sec:a_bit_of_history}
 
 \ntindex[Template]{}
 
-The \gls{novathesis} template was born at the \gls{DI} of  \gls{FCT} of \gls{NOVA}, Portugal.  But the user base grew… initially grew to other Departments of NOVA FCT, then to other Schools of NOVA, and later to other Schools of other Universities.  Currently more than~25 Schools are natively supported by the \gls{novathesis} template.  The full list of supported Schools can be founf at the
-\href{https://github.com/joaomlourenco/novathesis}{Project's GitHub page}.
+The global imperative to mitigate climate change has placed the transportation sector at the center of sustainability debates, as it remains one of the largest contributors to greenhouse gas (GHG) emissions worldwide. Within this sector, Urban Freight Transportation (UFT) plays a critical yet often underestimated role. Urban freight activities are essential to the functioning of modern cities, ensuring that goods are efficiently delivered to businesses and consumers. At the same time, they significantly contribute to traffic congestion, local air pollution, and carbon emissions, particularly in densely populated urban areas (Hao et al., 2015). Consequently, urban freight systems are increasingly subject to international decarbonization targets and stringent local environmental regulations.
+
+In response, public authorities across the world have adopted a wide range of policy measures to manage and decarbonize urban freight transport. A comprehensive international review by Holguín-Veras et al. shows that cities across Europe, North America, Asia, and Latin America have implemented initiatives such as access restrictions, low-emission zones, vehicle-related regulations, traffic management schemes, and infrastructure adaptations. Evidence from 56 cities in 32 countries indicates that regulatory and supply-side approaches dominate current practice, with Europe and Asia leading the implementation of vehicle-related strategies—such as emission standards and low-emission zones—while North America relies more heavily on infrastructure and operational management measures.
+
+Although these policies have been effective in reducing emissions, congestion, and other negative externalities, they frequently impose additional costs on freight operators. In particular, vehicle-related restrictions and low-emission zones are associated with increased delivery costs and accelerated fleet renewal, highlighting a fundamental trade-off between environmental objectives and operational profitability. As a result, urban freight policies increasingly transfer financial and investment risk to private fleet operators, who must adapt their vehicle portfolios under regulatory pressure while facing uncertain economic returns.
+
+Despite the breadth and intensity of these policy interventions, their translation into large-scale fleet transformation has been uneven. A systematic literature review by Kervall and Pålsson (2022), covering 93 peer-reviewed studies, identifies a wide range of barriers that hinder the transformation of urban freight systems, including economic constraints, technological uncertainty, lack of charging infrastructure, and policy misalignment. Among these, economic barriers and the so-called “first-mover disadvantage” are particularly critical for fleet operators, as early adopters of electric vehicles face high upfront investment costs, uncertain operational benefits, and volatile energy prices. As a consequence, fleet replacement decisions are often postponed or limited to incremental changes, despite strong regulatory pressure.
+
+This combination of regulatory ambition and systemic barriers transforms fleet replacement into a complex decision-making problem under uncertainty. While electric vehicles offer clear environmental benefits and the potential for lower operating costs, they are associated with high capital expenditures and significant technological uncertainty. Fleet managers must make high-stakes investment decisions in a volatile environment, where fuel prices, electricity costs, and vehicle residual values fluctuate unpredictably. The central challenge, therefore, is not merely environmental compliance, but determining an optimal fleet composition that balances conventional and alternative vehicle technologies while meeting sustainability targets without compromising financial viability.
+
+\section{Previous approach and objectives}
+\label{sec:Previous approach and objectives}
+
+To support investment decisions under uncertainty in fleet replacement problems, the financial literature offers well-established quantitative tools, most notably Modern Portfolio Theory (MPT), originally introduced by Markowitz (1952). MPT provides a framework for balancing expected performance and risk by treating different assets as components of a portfolio with distinct cost and risk characteristics. This framework has been successfully adapted to the context of urban freight transportation by Ahani et al. (2016), who modeled vehicle technologies as portfolio assets and demonstrated that a diversified fleet composition can hedge against uncertainty in fuel prices and operating costs.
+
+In the formulation proposed by Ahani et al. (2016), the fleet replacement problem is modeled as a multi-objective optimization problem, with the objectives of minimizing the Expected Total Cost (ETC) and minimizing the Variance of the total cost. The expected cost captures average economic performance, while variance is used as a measure of risk, reflecting cost volatility arising from uncertain market conditions. This mean–variance formulation allows decision-makers to explicitly analyze the trade-off between cost efficiency and risk exposure, providing a structured basis for fleet composition decisions under uncertainty.
+
+Despite its relevance and practical applicability, existing applications of the mean–variance framework in urban fleet optimization are often based on simplified representations of real-world fleets. In particular, many models focus on a limited number of vehicle technologies or assume homogeneous vehicle characteristics, which restricts their ability to capture the diversity observed in actual urban freight fleets. Moreover, the increasing availability of alternative vehicle technologies—such as electric, diesel, and hybrid vehicles with different sizes and operational profiles—calls for more comprehensive modeling approaches that can reflect this heterogeneity while preserving analytical tractability.
+
+
+Building on the framework of Ahani et al. (2016), this thesis extends the mean–variance approach by developing a more detailed fleet replacement optimization model that accommodates multiple vehicle technologies and characteristics. The resulting problem is formulated as a multi-objective mixed-integer linear programming (MILP) model. To solve this problem, the e(needstochange)-constraint method is employed, whereby one objective is optimized while the other is constrained within predefined bounds. By systematically varying the e(needstochange) parameter, the efficient frontier of optimal fleet compositions can be generated, enabling a clear visualization and analysis of the trade-offs between expected cost and risk.
+
+The primary objective of this thesis is therefore to develop and analyze a mean–variance-based optimization framework for urban fleet replacement decisions under uncertainty. Specifically, this work aims to:
+
+\begin{itemize}
+    \item Formulate a multi-objective optimization model that minimizes both Expected Total Cost and cost Variance in urban fleet replacement decisions;
+    \item Extend existing models by incorporating multiple vehicle technologies and fleet characteristics;
+    \item Apply the e(needstochange)-constraint method to solve the resulting mixed-integer linear problem and generate the efficient frontier;
+    \item Analyze the trade-offs between cost and risk under different fleet compositions and market conditions.
+\end{itemize}
+
+In this context, the proposed framework is intended to support both private and public decision-makers by providing a transparent and quantitative tool for evaluating fleet replacement strategies that balance economic performance and risk in the transition toward more sustainable urban freight systems.
+
+\section{Research Questions}
+\label{sec:Research Questions}
+
+To address the identified gaps and guide the development of the proposed optimization framework, this thesis aims to answer the following core research questions:
+
+\begin{itemize}
+    \item \textbf{RQ1:} How does the trade-off between Expected Total Cost and cost Variance influence the optimal composition of an urban freight fleet under uncertainty?
+    
+    \item \textbf{RQ2:} How do different levels of risk aversion, represented through a mean-variance framework, affect fleet replacement decisions and the resulting efficient frontier?
+    
+    \item \textbf{RQ3:} What are the economic trade-offs between minimizing Expected Total Cost and minimizing cost Variance when transitioning from conventional vehicle technologies to electric and hybrid alternatives?
+    
+    \item \textbf{RQ4:} To what extent is the optimal fleet configuration sensitive to variations in key market parameters (e.g., energy prices and vehicle acquisition costs), and what are the critical thresholds that trigger significant shifts in fleet composition?
+\end{itemize}
+
+%% ---------------------------- -------------------------------- -----------------------------
+%% ---------------------------- -------Document Structure------- -----------------------------
+%% ---------------------------- -------------------------------- -----------------------------
+\section{Document Structure}
+\label{sec:Document Structure}
+
+The remainder of this dissertation is organized as follows.
+
+Chapter 2 presents a comprehensive literature review on sustainable urban freight transportation, fleet replacement optimization models, and the application of portfolio theory to transportation systems. Special attention is given to mean–variance formulations and risk modeling approaches relevant to fleet investment decisions under uncertainty.
+
+Chapter 3 describes the case study considered in this work. It introduces the characteristics of the urban freight fleet, the operational context, and the data assumptions used to represent vehicle technologies, cost components, and uncertainty sources.
+
+Chapter 4 presents the proposed optimization framework. This chapter details the mathematical formulation of the multi-objective fleet replacement model, including decision variables, objective functions, and constraints. The solution approach based on the e(needstochange)-constraint method is also described, along with the procedure used to generate the efficient frontier.
+
+Chapter 5 outlines the tasks to be carried out for the remainder of this dissertation, along with the planned schedule for their completion.
+
+\newpage
 
 % (see Tables~\ref{tab:supported_schools_NOVA University Lisbon}, \ref{tab:supported_schools_University of Lisbon}, \ref{tab:supported_schools_University of Minho}, \ref{tab:supported_schools_Instituto Politécnico de Lisboa}, \ref{tab:supported_schools_Instituto Politécnico de Setúbal}, and \ref{tab:supported_schools_Other Universities/Schools/Degrees}).
 %
@@ -302,163 +351,163 @@ The \gls{novathesis} template was born at the \gls{DI} of  \gls{FCT} of \gls{NOV
 %     }\\
 % \end{ntUniversity}
     
-\subsection{Your Time is Precious}
-\label{sub:time_is_money}
+% \subsection{Your Time is Precious}
+% \label{sub:time_is_money}
 
-Did you learn how to drive by sitting by the wheel and throwing your car into the road?  Most probably you did take your time \emph{learning the rules} and \emph{practicing} first! Likewise, it is not wise to throw yourself at the task of writing a thesis/dissertation in \LaTeX\ without seriously considering the following \ntindex{recommendation}!
+% Did you learn how to drive by sitting by the wheel and throwing your car into the road?  Most probably you did take your time \emph{learning the rules} and \emph{practicing} first! Likewise, it is not wise to throw yourself at the task of writing a thesis/dissertation in \LaTeX\ without seriously considering the following \ntindex{recommendation}!
 
-\begin{tcolorbox}[colback=green!8]
-  If you are going to spend zillions of hours writing your thesis/dissertation using the \gls{novathesis} \LaTeX\ template (or some other \LaTeX\ template), be wise and spend a couple of hours learning how to use it properly by reading its manual.  And then, be even wiser, and spend a few more hours \href{https://github.com/joaomlourenco/novathesis/wiki\#learning-latex}{learning some \LaTeX}.  I am sure that the time you are investing now will pay itself countless times before you submit your thesis/dissertation.\\\parbox{\linewidth}{\raggedleft---~\emph{João Lourenço}}
-\end{tcolorbox}
+% \begin{tcolorbox}[colback=green!8]
+%   If you are going to spend zillions of hours writing your thesis/dissertation using the \gls{novathesis} \LaTeX\ template (or some other \LaTeX\ template), be wise and spend a couple of hours learning how to use it properly by reading its manual.  And then, be even wiser, and spend a few more hours \href{https://github.com/joaomlourenco/novathesis/wiki\#learning-latex}{learning some \LaTeX}.  I am sure that the time you are investing now will pay itself countless times before you submit your thesis/dissertation.\\\parbox{\linewidth}{\raggedleft---~\emph{João Lourenço}}
+% \end{tcolorbox}
 
-\subsection{Recognition}
-\label{sub:recognition}
+% \subsection{Recognition}
+% \label{sub:recognition}
 
-\ntindex[Recognition]{}
+% \ntindex[Recognition]{}
 
-The \gls{novathesis} template was born in~1996, and what you see now accumulates to many many hundreds (thousands?!) of working hours, unpaid and stolen from family and friends.  This work is available to the community under the \href{LaTeX project public license}{\LaTeX\ Project Public License v1.3c}, which means you are entitled to use it for free and change it at your will.  However, if you decide to use this template to write your thesis/dissertation, \textbf{be fair to the developers} and:
-\begin{enumerate}
-  \item \ntindex[novathesis!Citation]{} Cite the \gls{novathesis} manual~\cite{novathesis-manual} in a place of your choice (e.g., in the \emph{Acknowledgments}) of your thesis/dissertation with “\verb!\cite{novathesis-manual}!” .  If you cite it this way, the correct entry will be added automatically to your bibliography (no need to worry with the necessary BibTeX entry, as it will be added automatically);
-  \item Go to the
-\href{https://github.com/joaomlourenco/novathesis}{\ntindex[GitHub!project web page]{project web page} in GitHub} and give the project a \ntindex[GitHub!stars]{star} (marked with a red ellipse at the top-right in Figure~\ref{fig:github}); and
-  \item Make a \ntindex[donations]{donation} by visiting the \gls{novathesis} project page and clicking in the button marked with a green ellipse at the top-center in Figure~\ref{fig:github}).  Alternatively, just click \href{https://www.paypal.com/donate/?hosted_button_id=8WA8FRVMB78W8}{\fcolorbox{DarkGreen}{gray!15}{\textbf{~HERE~}}} and your browser will be directed to the right page.
-\end{enumerate}
+% The \gls{novathesis} template was born in~1996, and what you see now accumulates to many many hundreds (thousands?!) of working hours, unpaid and stolen from family and friends.  This work is available to the community under the \href{LaTeX project public license}{\LaTeX\ Project Public License v1.3c}, which means you are entitled to use it for free and change it at your will.  However, if you decide to use this template to write your thesis/dissertation, \textbf{be fair to the developers} and:
+% \begin{enumerate}
+%   \item \ntindex[novathesis!Citation]{} Cite the \gls{novathesis} manual~\cite{novathesis-manual} in a place of your choice (e.g., in the \emph{Acknowledgments}) of your thesis/dissertation with “\verb!\cite{novathesis-manual}!” .  If you cite it this way, the correct entry will be added automatically to your bibliography (no need to worry with the necessary BibTeX entry, as it will be added automatically);
+%   \item Go to the
+% \href{https://github.com/joaomlourenco/novathesis}{\ntindex[GitHub!project web page]{project web page} in GitHub} and give the project a \ntindex[GitHub!stars]{star} (marked with a red ellipse at the top-right in Figure~\ref{fig:github}); and
+%   \item Make a \ntindex[donations]{donation} by visiting the \gls{novathesis} project page and clicking in the button marked with a green ellipse at the top-center in Figure~\ref{fig:github}).  Alternatively, just click \href{https://www.paypal.com/donate/?hosted_button_id=8WA8FRVMB78W8}{\fcolorbox{DarkGreen}{gray!15}{\textbf{~HERE~}}} and your browser will be directed to the right page.
+% \end{enumerate}
 
-\begin{figure}[htbp]
-    \centering
-    \includegraphics[width=0.5\linewidth]{github1}
-    \caption{The \gls{novathesis} project web page in GitHub.}
-    \label{fig:github}
-\end{figure}
-
-
-\section{Getting Started}
-\label{sec:getting_started}
-
-The template provides an \emph{easy to use} setting for you to write your thesis/dissertation in \LaTeX:
-\begin{itemize}
-  \item  Select your school;
-  \item Fill your thesis metadata (title, research field, etc) in the file “\texttt{template.tex}”;
-  \item Create your thesis/dissertation contents using the files in folder “\texttt{Chapters}”; and
-  \item Process using you favorite \LaTeX\ processor (pdf\LaTeX, \XeLaTeX\ or \LuaLaTeX).
-\end{itemize}
-
-\subsection{Using Overleaf}
-\label{sub:using_overleaf}
-
-\ntindex[Installation!Overleaf]{}
-\ntindex[Using!Overleaf]{}
-
-\newcommand{\Overleaf}{\href{https://www.overleaf.com?r=f5160636&rm=d&rs=b}{Overleaf}}
-
-\begin{wrapfigure}{r}{0.3\linewidth}
-% \vspace*{-10ex}
-\includegraphics[width=\linewidth]{overleaf}%
-\caption{NOVAthesis template in Overleaf.}
-\label{fig:overleaf}
-\end{wrapfigure}
-\mbox{}\Overleaf\ is a collaborative cloud-based LaTeX editor used for writing, editing and publishing scientific documents. Like “Google Docs”,  for \LaTeX\ users. You can edit and compile your \LaTeX\ source on the cloud, without installing software in your own computer, and, much like \emph{Google Docs}, you can share your document with others users and everybody can edit the same file at the same time (this may be dangerous).
-
-If you do not have an account in \Overleaf, you must \href{https://www.overleaf.com?r=f5160636&rm=d&rs=b}{create one first}.
-
-Once you have an account, please access the \gls{novathesis} template in \href{https://www.overleaf.com/latex/templates/novathesis-v7-dot-1-18/jhqwhtcwbmqc}{Overleaf} and select the green button \emph{Open as Template} (see \Autoref{fig:overleaf}).
-
-\bgroup
-  \itshape
-  Please notice that the version currently available in Overleaf (v7.1.18) is slightly outdated (current version is v\novathesisversion). A new version (v7.1.29) will be submitted to Overleaf soon.  Until then, please:
-  \begin{enumerate}
-    \item Download the \href{https://github.com/joaomlourenco/novathesis/archive/main.zip}{latest version} from the GitHub repository as a Zip file.
-    \item Login to your favorite LaTeX cloud service. I recommend \href{https://www.overleaf.com/?r=f5160636&rm=d&rs=b}{Overleaf} but there are alternatives (these instructions apply to Overleaf and you'll have to adapt for other providers).
-    \item In the menu select: \texttt{New project} $\rightarrow$ \texttt{Upload project}.
-    \item Upload the zip file.
-    \item Select “template.tex” as the main file.
-    \item Let Overleaf compile the document.
-  \end{enumerate}
-\egroup
-
-\begin{tcolorbox}[colback=red!8]
-	Notice that you need a (student) subscription to compile the \novathesis\ template in Overleaf, otherwise your compilation will always time out.
-\end{tcolorbox}
-
-\subsection{Using a Local \LaTeX\ Installation Local}
-\label{sub:using_local_latex}
-
-\ntindex[Installation!Local installation]{}
-\ntindex[Using!Local installation]{}
-
-\begin{wrapfigure}{r}{0.3\linewidth}
-\vspace*{-7ex}
-\includegraphics[width=\linewidth]{github}%
-\caption{The NOVAthesis Project page in GitHub.}
-\label{fig:github2}
-\end{wrapfigure}
-
-First of all, start by installing \LaTeX\ in your computer.  There are two main distributions, \href{https://miktex.org}{\ntindex{\MikTeX}}\ and \href{https://www.tug.org/texlive/}{\ntindex{\TeXLive}}, and both of them are available for the~3 most popular Operating Systems: Linux, macOS and Windows.
-
-Be aware that a full installation of \MikTeX\ or \TeXLive\ will take near~5\,GB of hard disk space.  So, think twice before installing the full distribution.  See the \gls{novathesis} Wiki for the \href{https://github.com/joaomlourenco/novathesis/wiki/installing-latex#minimal-installation-in-any-of-the-systems-above}{list of packages required to compile the template}.
-
-Once you have \LaTeX\ up and running, remember to install a good \LaTeX\ text editor.  I recommend you to take a look at  \href{https://tex.stackexchange.com/questions/339/latex-editors-ides}{this post} in the \url{tex.stackexchange.com} site.  If you want a quick and dirty recommendation, try \href{https://www.texstudio.org/}{\ntindex{TeXStudio}}.
-
-Now, you must access the \gls{novathesis} repository in \href{https://github.com/joaomlourenco/novathesis}{GitHub}, select the green button \emph{Code} and then \emph{download} (or \emph{clone}) the template.  You will always get the latest version of the template (currently v\novathesisversion\ from \novathesisdate).
+% \begin{figure}[htbp]
+%     \centering
+%     \includegraphics[width=0.5\linewidth]{github1}
+%     \caption{The \gls{novathesis} project web page in GitHub.}
+%     \label{fig:github}
+% \end{figure}
 
 
-\section{Getting Help}
-\label{sec:getting_help}
+% \section{Getting Started}
+% \label{sec:getting_started}
 
-\ntindex[Help]{}
+% The template provides an \emph{easy to use} setting for you to write your thesis/dissertation in \LaTeX:
+% \begin{itemize}
+%   \item  Select your school;
+%   \item Fill your thesis metadata (title, research field, etc) in the file “\texttt{template.tex}”;
+%   \item Create your thesis/dissertation contents using the files in folder “\texttt{Chapters}”; and
+%   \item Process using you favorite \LaTeX\ processor (pdf\LaTeX, \XeLaTeX\ or \LuaLaTeX).
+% \end{itemize}
 
-No! You don't have to use this template to write your thesis.  You don't even have to use \LaTeX.  However, writing a thesis is serious stuff, and which tool you shall use to write it is not a decision to make lighthearted.
+% \subsection{Using Overleaf}
+% \label{sub:using_overleaf}
 
-\LaTeX\ is hard enough by itself.  This template aims at making your life easier, but not easy. If you choose to use this template to write your thesis, you are very welcome.  However, don't expect me to provide you help with \LaTeX.  Look for help with your friends (you have some friends, don't you?), or search the web, or try even to read some book(s) on \LaTeX. In the end you will certainly find the experience rewarding.
+% \ntindex[Installation!Overleaf]{}
+% \ntindex[Using!Overleaf]{}
 
-When you come to the point of “\emph{How do I do this with the \novathesis\ template?}”, remember…
+% \newcommand{\Overleaf}{\href{https://www.overleaf.com?r=f5160636&rm=d&rs=b}{Overleaf}}
 
-\begin{enumerate}
-  \item To check the \href{https://github.com/joaomlourenco/novathesis/wiki}{\gls{novathesis} wiki} and have some hope!  \emojiSmile
-  \item \href{https://www.google.com}{Google} is your best friend.
-  \item Search the \href{https://github.com/joaomlourenco/novathesis/discussions}{GitHub Discussions page} for a question related to yours.  \emph{If and only if} you don't find one, then post your own question in English please!
-  \item Search the \href{https://www.facebook.com/groups/novathesis}{NOVAtheis Facebook group} for a question related to yours.  \emph{If and only if} you don't find one, then post your own question in either Portuguese or English, at your preference.
-\end{enumerate}
+% \begin{wrapfigure}{r}{0.3\linewidth}
+% % \vspace*{-10ex}
+% \includegraphics[width=\linewidth]{overleaf}%
+% \caption{NOVAthesis template in Overleaf.}
+% \label{fig:overleaf}
+% \end{wrapfigure}
+% \mbox{}\Overleaf\ is a collaborative cloud-based LaTeX editor used for writing, editing and publishing scientific documents. Like “Google Docs”,  for \LaTeX\ users. You can edit and compile your \LaTeX\ source on the cloud, without installing software in your own computer, and, much like \emph{Google Docs}, you can share your document with others users and everybody can edit the same file at the same time (this may be dangerous).
 
-When you post your own question, remember to \textbf{always} state the \gls{novathesis} version number you are using and referring to.
+% If you do not have an account in \Overleaf, you must \href{https://www.overleaf.com?r=f5160636&rm=d&rs=b}{create one first}.
 
-\begin{tcolorbox}[colback=blue!8]
-	\centering
-Please do not attempt to contact me directly (email, Messenger, etc)…\\I WILL NOT REPLY!
-\end{tcolorbox}
+% Once you have an account, please access the \gls{novathesis} template in \href{https://www.overleaf.com/latex/templates/novathesis-v7-dot-1-18/jhqwhtcwbmqc}{Overleaf} and select the green button \emph{Open as Template} (see \Autoref{fig:overleaf}).
+
+% \bgroup
+%   \itshape
+%   Please notice that the version currently available in Overleaf (v7.1.18) is slightly outdated (current version is v\novathesisversion). A new version (v7.1.29) will be submitted to Overleaf soon.  Until then, please:
+%   \begin{enumerate}
+%     \item Download the \href{https://github.com/joaomlourenco/novathesis/archive/main.zip}{latest version} from the GitHub repository as a Zip file.
+%     \item Login to your favorite LaTeX cloud service. I recommend \href{https://www.overleaf.com/?r=f5160636&rm=d&rs=b}{Overleaf} but there are alternatives (these instructions apply to Overleaf and you'll have to adapt for other providers).
+%     \item In the menu select: \texttt{New project} $\rightarrow$ \texttt{Upload project}.
+%     \item Upload the zip file.
+%     \item Select “template.tex” as the main file.
+%     \item Let Overleaf compile the document.
+%   \end{enumerate}
+% \egroup
+
+% \begin{tcolorbox}[colback=red!8]
+% 	Notice that you need a (student) subscription to compile the \novathesis\ template in Overleaf, otherwise your compilation will always time out.
+% \end{tcolorbox}
+
+% \subsection{Using a Local \LaTeX\ Installation Local}
+% \label{sub:using_local_latex}
+
+% \ntindex[Installation!Local installation]{}
+% \ntindex[Using!Local installation]{}
+
+% \begin{wrapfigure}{r}{0.3\linewidth}
+% \vspace*{-7ex}
+% \includegraphics[width=\linewidth]{github}%
+% \caption{The NOVAthesis Project page in GitHub.}
+% \label{fig:github2}
+% \end{wrapfigure}
+
+% First of all, start by installing \LaTeX\ in your computer.  There are two main distributions, \href{https://miktex.org}{\ntindex{\MikTeX}}\ and \href{https://www.tug.org/texlive/}{\ntindex{\TeXLive}}, and both of them are available for the~3 most popular Operating Systems: Linux, macOS and Windows.
+
+% Be aware that a full installation of \MikTeX\ or \TeXLive\ will take near~5\,GB of hard disk space.  So, think twice before installing the full distribution.  See the \gls{novathesis} Wiki for the \href{https://github.com/joaomlourenco/novathesis/wiki/installing-latex#minimal-installation-in-any-of-the-systems-above}{list of packages required to compile the template}.
+
+% Once you have \LaTeX\ up and running, remember to install a good \LaTeX\ text editor.  I recommend you to take a look at  \href{https://tex.stackexchange.com/questions/339/latex-editors-ides}{this post} in the \url{tex.stackexchange.com} site.  If you want a quick and dirty recommendation, try \href{https://www.texstudio.org/}{\ntindex{TeXStudio}}.
+
+% Now, you must access the \gls{novathesis} repository in \href{https://github.com/joaomlourenco/novathesis}{GitHub}, select the green button \emph{Code} and then \emph{download} (or \emph{clone}) the template.  You will always get the latest version of the template (currently v\novathesisversion\ from \novathesisdate).
 
 
-\subsection{Suggestions, Bugs and Feature Requests} % (fold)
-\label{sub:suggestions_bugs_and_feature_requests}
+% \section{Getting Help}
+% \label{sec:getting_help}
 
-\begin{description}
-  \item[Help:] If you just need some help, see above \Autoref{sec:getting_help}.
-  \item[Suggestion:] \ntindex[Suggestions]{} Do you have a suggestion/recommendation? Please add it to the wiki and help other users!
-  \item[Bug:] \ntindex[Bugs]{} Did you find a bug? Please open an issue. Thanks!
-  \item[New Feature:] \ntindex[Feature Requests]{} Would you like to request a new feature (or support of a new School)? Please open an issue. Thanks!
+% \ntindex[Help]{}
 
-\end{description}
+% No! You don't have to use this template to write your thesis.  You don't even have to use \LaTeX.  However, writing a thesis is serious stuff, and which tool you shall use to write it is not a decision to make lighthearted.
+
+% \LaTeX\ is hard enough by itself.  This template aims at making your life easier, but not easy. If you choose to use this template to write your thesis, you are very welcome.  However, don't expect me to provide you help with \LaTeX.  Look for help with your friends (you have some friends, don't you?), or search the web, or try even to read some book(s) on \LaTeX. In the end you will certainly find the experience rewarding.
+
+% When you come to the point of “\emph{How do I do this with the \novathesis\ template?}”, remember…
+
+% \begin{enumerate}
+%   \item To check the \href{https://github.com/joaomlourenco/novathesis/wiki}{\gls{novathesis} wiki} and have some hope!  \emojiSmile
+%   \item \href{https://www.google.com}{Google} is your best friend.
+%   \item Search the \href{https://github.com/joaomlourenco/novathesis/discussions}{GitHub Discussions page} for a question related to yours.  \emph{If and only if} you don't find one, then post your own question in English please!
+%   \item Search the \href{https://www.facebook.com/groups/novathesis}{NOVAtheis Facebook group} for a question related to yours.  \emph{If and only if} you don't find one, then post your own question in either Portuguese or English, at your preference.
+% \end{enumerate}
+
+% When you post your own question, remember to \textbf{always} state the \gls{novathesis} version number you are using and referring to.
+
+% \begin{tcolorbox}[colback=blue!8]
+% 	\centering
+% Please do not attempt to contact me directly (email, Messenger, etc)…\\I WILL NOT REPLY!
+% \end{tcolorbox}
 
 
+% \subsection{Suggestions, Bugs and Feature Requests} % (fold)
+% \label{sub:suggestions_bugs_and_feature_requests}
 
-% subsection suggestions_bugs_and_feature_requests (end)
+% \begin{description}
+%   \item[Help:] If you just need some help, see above \Autoref{sec:getting_help}.
+%   \item[Suggestion:] \ntindex[Suggestions]{} Do you have a suggestion/recommendation? Please add it to the wiki and help other users!
+%   \item[Bug:] \ntindex[Bugs]{} Did you find a bug? Please open an issue. Thanks!
+%   \item[New Feature:] \ntindex[Feature Requests]{} Would you like to request a new feature (or support of a new School)? Please open an issue. Thanks!
+
+% \end{description}
 
 
 
-
-\section{Donors}
-\label{sec:donations}
-
-\ntindex[Donations]{}
-
-The \href{https://github.com/joaomlourenco/novathesis/wiki#donators}{list of \emph{Donnors}} is available in the \gls{novathesis} Project page.
+% % subsection suggestions_bugs_and_feature_requests (end)
 
 
-\section{Disclaimer}
-\label{sec:disclaimer}
 
-\ntindex[Disclaimer]{}
 
-Although the \gls{novathesis} template is endorsed by some Schools (e.g., \href{https://www.fct.unl.pt/estudante/informacao-academica/teses-e-dissertacoes}{linked from NOVA FCT web site}), the \gls{novathesis} template \textbf{this not an official template} for any School.
+% \section{Donors}
+% \label{sec:donations}
 
-The \gls{novathesis} template exists to make your life easier and we do our best to make it compliant to the supported ($+25$) Schools' regulations but, in the end of the line, you and only you are accountable for both the look and the contents of the document you submit as your thesis/dissertation.
+% \ntindex[Donations]{}
+
+% The \href{https://github.com/joaomlourenco/novathesis/wiki#donators}{list of \emph{Donnors}} is available in the \gls{novathesis} Project page.
+
+
+% \section{Disclaimer}
+% \label{sec:disclaimer}
+
+% \ntindex[Disclaimer]{}
+
+% Although the \gls{novathesis} template is endorsed by some Schools (e.g., \href{https://www.fct.unl.pt/estudante/informacao-academica/teses-e-dissertacoes}{linked from NOVA FCT web site}), the \gls{novathesis} template \textbf{this not an official template} for any School.
+
+% The \gls{novathesis} template exists to make your life easier and we do our best to make it compliant to the supported ($+25$) Schools' regulations but, in the end of the line, you and only you are accountable for both the look and the contents of the document you submit as your thesis/dissertation.
